@@ -22,7 +22,9 @@ export function setApiKey(key: string): void {
 export function fetch<T>(jql: JQL<T>): Promise<T> {
     if (!_apiKey) { throw 'API key not set' }
 
-    jql = `function main() { ${jql} }`
+    if (!/^\s*function\s+main()/.test(jql as string)) {
+        jql = `function main() { ${jql} }`
+    }
 
     return rp.post(MP_API_JQL_URI, {
         form: {script: jql, params: JSON.stringify({})},

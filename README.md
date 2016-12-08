@@ -11,11 +11,13 @@ import * as jqlFetch from 'jqllib-fetch'
 jqlFetch.setApiKey("MIXPANEL_SECRET_KEY")
 
 jqlFetch
-    .fetch(`function main() { return Events(...)... }`)    // Returns a Bluebird promise
+    .fetch(`return Events(...)...`)    // Returns a Bluebird promise
     .then(events => {
         // Do stuff with your list of events, or whatever your query was
     })
 ```
+
+If your JQL is not already wrapped in a "main" function as required by Mixpanel, `jqlFetch.fetch` will wrap it for you.
 
 `jqllib-fetch` also plays nicely with `jqllib`, if you are using TypeScript and want typesafe queries:
 ```typescript

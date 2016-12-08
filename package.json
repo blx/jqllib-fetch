@@ -1,6 +1,6 @@
 {
   "name": "jqllib-fetch",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Lightweight client for making requests to the Mixpanel JQL API",
   "main": "lib/fetch.js",
   "typings": "lib/fetch",
